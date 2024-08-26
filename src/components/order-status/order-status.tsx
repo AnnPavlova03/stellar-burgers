@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import { OrderStatusProps } from './type';
 import { OrderStatusUI } from '@ui';
+import { useSelector } from 'react-redux';
+import { getUserOrder } from 'src/services/orderUser/orderUser';
 
 const statusText: { [key: string]: string } = {
   pending: 'Готовится',

@@ -9,13 +9,15 @@
       "jsx": true
     }
   },
-  "rules": {
-    "prettier/prettier": [
-      "warn",
-      {
-        "usePrettierrc": true
-      }
-    ],
+    
+    "rules": {
+      "prettier/prettier": ["error", {
+        "endOfLine": "auto",
+        "trailingComma": "none"
+      }],
+      "no-trailing-spaces": "off",
+    
+  
     "react/react-in-jsx-scope": "off",
     "comma-dangle": "off",
     "use-isnan": ["error", { "enforceForSwitchCase": true }],
@@ -59,6 +61,7 @@
       }
     ]
   },
+
   "settings": {
     "react": {
       "version": "detect"
