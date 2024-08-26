@@ -5,9 +5,5 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export const AppHeader: FC = () => {
   const user = useSelector(getUser);
-
-  console.log('userAppHeader', user);
-  console.log('username', user?.name);
-
   return <AppHeaderUI userName={user?.name} />;
 };

@@ -14,7 +14,6 @@ export const Profile: FC = () => {
     email: user?.email ?? '',
     password: ''
   });
-  console.log('user', user);
   useEffect(() => {
     if (user) {
       setFormValue((prevState) => ({

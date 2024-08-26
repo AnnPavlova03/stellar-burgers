@@ -26,11 +26,9 @@ export const orderSlice = createSlice({
       .addCase(getOrderByNumber.fulfilled, (state, action) => {
         const [order] = action.payload.orders;
         state.order = order;
-        console.log('getOrderByNumber', action.payload);
       })
       .addCase(getFeeds.fulfilled, (state, action) => {
         state.orderList = action.payload;
-        console.log('getFeeds', action.payload);
       })
 });
 

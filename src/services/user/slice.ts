@@ -31,19 +31,15 @@ export const userSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.isAuthChecked = true;
-        console.log('loginUser', state.user);
       })
       .addCase(registerUser.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        console.log('registerUser', state.user);
       })
       .addCase(updateUser.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        console.log('updateUser', state.user);
       })
       .addCase(logoutUser.fulfilled, (state) => {
         state.user = null;
-        console.log('logoutUser', state.user);
       });
   }
 });
