@@ -20,12 +20,5 @@ export const Feed: FC = () => {
   const { orders } = orderList;
   const order = orders;
 
-  return (
-    <FeedUI
-      orders={order}
-      handleGetFeeds={() => {
-        [...order];
-      }}
-    />
-  );
+  return <FeedUI orders={order} handleGetFeeds={() => dispatch(getFeeds())} />;
 };
