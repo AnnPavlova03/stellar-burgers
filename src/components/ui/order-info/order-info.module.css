@@ -55,6 +55,7 @@
   padding: 0;
   overflow-y: auto;
   max-height: 320px;
+  scrollbar-width: thin;
 }
 
 .list::-webkit-scrollbar {
@@ -73,4 +74,8 @@
 }
 .total {
   margin-left: auto;
+}
+
+.centered {
+  margin: auto;
 }
