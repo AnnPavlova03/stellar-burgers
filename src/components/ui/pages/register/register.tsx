@@ -23,11 +23,12 @@ export const RegisterUI: FC<RegisterUIProps> = ({
       <h3 className='pb-6 text text_type_main-medium'>Регистрация</h3>
       <form
         className={`pb-15 ${styles.form}`}
+        data-cy='form'
         name='register'
         onSubmit={handleSubmit}
       >
         <>
-          <div className='pb-6'>
+          <div className='pb-6' data-cy='name'>
             <Input
               type='text'
               placeholder='Имя'
@@ -39,7 +40,7 @@ export const RegisterUI: FC<RegisterUIProps> = ({
               size='default'
             />
           </div>
-          <div className='pb-6'>
+          <div className='pb-6' data-cy='email'>
             <Input
               type='email'
               placeholder='E-mail'
@@ -51,14 +52,14 @@ export const RegisterUI: FC<RegisterUIProps> = ({
               size={'default'}
             />
           </div>
-          <div className='pb-6'>
+          <div className='pb-6' data-cy='password'>
             <PasswordInput
               onChange={(e) => setPassword(e.target.value)}
               value={password}
               name='password'
             />
           </div>
-          <div className={`pb-6 ${styles.button}`}>
+          <div className={`pb-6 ${styles.button}`} data-cy='submit'>
             <Button type='primary' size='medium' htmlType='submit'>
               Зарегистрироваться
             </Button>
