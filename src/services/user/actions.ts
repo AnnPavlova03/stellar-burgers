@@ -10,7 +10,7 @@ import {
 } from '../../utils/burger-api';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { deleteCookie, setCookie } from '../../utils/cookie';
-import { setAuth, setUser } from './slice';
+import { setAuth, setUser } from './userSlice';
 
 export const loginUser = createAsyncThunk<TAuthResponse, TLoginData>(
   'user/loginUser',

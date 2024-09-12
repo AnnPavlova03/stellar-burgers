@@ -7,7 +7,7 @@ import {
 } from 'react-redux';
 
 import { burgerConstructorSlice } from './burgerConstructor/burger';
-import { userSlice } from './user/slice';
+import { userSlice } from './user/userSlice';
 import { orderSlice } from './order/order';
 import { userOrderSlice } from './orderUser/orderUser';
 

@@ -2,7 +2,7 @@ import { createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit';
 import { TConstructorIngredient, TIngredient } from '@utils-types';
 import { getIngredients } from './actions';
 
-interface BurgerState {
+export interface BurgerState {
   burger: TIngredient[];
   constructorItems: {
     bun: TIngredient | null;
@@ -10,28 +10,29 @@ interface BurgerState {
   };
   listIngredients: string[];
   status: boolean;
+  error: string | null;
 }
 type MoveIngredient = {
   fromIndex: number;
   toIndex: number;
 };
 
-const initialState: BurgerState = {
+export const initialStateBurger: BurgerState = {
   burger: [],
   constructorItems: {
     bun: null,
     ingredients: []
   },
   listIngredients: [],
-  status: false
+  status: false,
+  error: null
 };
 
 export const burgerConstructorSlice = createSlice({
   name: 'burgerConstructor',
-  initialState,
+  initialState: initialStateBurger,
   reducers: {
     addIngredient: {
-      // чем такой вариант реализации добавления элемента приемлимей или лучше чем вариант снизу файла?
       reducer: (state, action: PayloadAction<TConstructorIngredient>) => {
         if (action.payload.type === 'bun') {
           state.constructorItems.bun = action.payload;
@@ -86,6 +87,10 @@ export const burgerConstructorSlice = createSlice({
       .addCase(getIngredients.fulfilled, (state, action) => {
         state.burger = action.payload;
         state.status = false;
+      })
+      .addCase(getIngredients.rejected, (state, action) => {
+        state.error = action.error?.message ?? 'error message getIngredients';
+        state.status = false;
       });
   }
 });
@@ -102,16 +107,3 @@ export const {
   getIngredientList,
   statusLoading
 } = burgerConstructorSlice.selectors;
-
-// addIngredient: (action, state) => {
-//   if (action.payload.type === 'bun') {
-//     state.constructorItems.bun = action.payload;
-//   } else {
-//     const newIngredient = {
-//       ...action.payload,
-//       id: Math.random().toString()
-//     };
-
-//     state.constructorItems.ingredients.push(newIngredient);
-//   }
-// };
