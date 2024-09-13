@@ -24,6 +24,8 @@ describe('Constructor page', () => {
   });
 
   it('add ingredient', () => {
+    cy.get("[data-cy='bun']").should('have.length', 0);
+    cy.get("[data-cy='main'] li").should('have.length', 0);
     ingredientData.forEach((item: TIngredient) => {
       const _id = item._id;
       cy.get(`[data-cy="${_id}"]`).contains('button', 'Добавить').click();
@@ -33,6 +35,7 @@ describe('Constructor page', () => {
   });
   describe('cheking modal work', () => {
     it('modal open', () => {
+      cy.get("[data-cy='modal']").should('not.exist');
       const firstElement = ingredientData[0]._id;
       openModal(firstElement);
     });
@@ -79,14 +82,14 @@ describe('Constructor page', () => {
         .should('have.value', loginData.password);
       cy.get("[data-cy='enterButton'] ").should('be.visible').click();
       cy.wait('@login').then((interception) => {
-        interception.response?.body.user;
         window.localStorage.setItem(
           'refreshToken',
           interception.response?.body.refreshToken
         );
         cy.setCookie('accessToken', interception.response?.body.accessToken);
       });
-
+      cy.get("[data-cy='bun']").should('have.length', 0);
+      cy.get("[data-cy='main'] li").should('have.length', 0);
       cy.get(`[data-cy="643d69a5c3f7b9001cfa093c"]`)
         .contains('button', 'Добавить')
         .click();

@@ -33,6 +33,7 @@ describe('test userOrderSlice', () => {
     const state = {
       ...initialStateUserOrder
     };
+
     test('getOrdersBurger request', () => {
       const action = { type: getOrdersBurger.pending.type };
       const result = userOrderSlice.reducer(state, action);

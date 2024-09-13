@@ -119,6 +119,7 @@ describe('test burgerConstructorSlice', () => {
     const state = {
       ...initialStateBurger
     };
+
     test('loading ingredient request', () => {
       const action = { type: getIngredients.pending.type };
       const result = burgerConstructorSlice.reducer(state, action);
