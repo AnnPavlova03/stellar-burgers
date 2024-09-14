@@ -1,12 +1,9 @@
 import { useSelector } from '../../services/store';
-
 import styles from './constructor-page.module.css';
-
 import { BurgerIngredients } from '../../components';
 import { BurgerConstructor } from '../../components';
 import { Preloader } from '../../components/ui';
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
 import { statusLoading } from '../../services/burgerConstructor/burger';
 
 export const ConstructorPage: FC = () => {

@@ -7,8 +7,8 @@ import {
   getIngredientList,
   setListIngredients
 } from '../../services/burgerConstructor/burger';
-import { useSelector } from 'react-redux';
-import { useDispatch } from '../../services/store';
+
+import { useDispatch, useSelector } from '../../services/store';
 import { useNavigate } from 'react-router-dom';
 
 import { getUser } from '../../services/user/userSlice';
