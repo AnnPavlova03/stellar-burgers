@@ -24,7 +24,7 @@ export const ProfileUI: FC<ProfileUIProps> = ({
       onSubmit={handleSubmit}
     >
       <>
-        <div className='pb-6'>
+        <div className='pb-6' data-cy='profileName'>
           <Input
             type={'text'}
             placeholder={'Имя'}
@@ -37,7 +37,7 @@ export const ProfileUI: FC<ProfileUIProps> = ({
             icon={'EditIcon'}
           />
         </div>
-        <div className='pb-6'>
+        <div className='pb-6' data-cy='profileEmail'>
           <Input
             type={'email'}
             placeholder={'E-mail'}
@@ -50,7 +50,7 @@ export const ProfileUI: FC<ProfileUIProps> = ({
             icon={'EditIcon'}
           />
         </div>
-        <div className='pb-6'>
+        <div className='pb-6' data-cy='profilePassword'>
           <Input
             type={'password'}
             placeholder={'Пароль'}
